@@ -1,4 +1,5 @@
 import {
+  ChartNoAxesColumnIncreasing,
   CreditCard,
   DollarSign,
   Package,
@@ -48,19 +49,10 @@ export const userStats = [
 
 export const productStats = [
   { label: "Total Products", value: "4,230", change: "+12.5%", icon: Package, tone: "green" },
-  { label: "Active", value: "3,980", icon: BarSignal, tone: "purple" },
+  { label: "Active", value: "3,980", icon: ChartNoAxesColumnIncreasing, tone: "purple" },
   { label: "Pending Approval", value: "120", icon: UserPlus, tone: "orange" },
   { label: "Flagged", value: "45", icon: ShieldCheck, tone: "green" },
 ] as const;
-
-function BarSignal(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path d="M8 9v6M12 6v12M16 9v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M5 7a10 10 0 0 0 0 10M19 7a10 10 0 0 1 0 10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 export const activities = [
   {

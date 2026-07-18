@@ -20,4 +20,8 @@ export const navigationItems = [
   { label: "Pending Actions", href: "/pending-actions", icon: AlertTriangle },
   { label: "Analytics", href: "/analytics", icon: BarChart3 },
   { label: "Settings", href: "/settings", icon: Settings },
-];
+] as const;
+
+export const routeTitles = Object.fromEntries(
+  navigationItems.map((item) => [item.href, item.label]),
+) as Record<(typeof navigationItems)[number]["href"], string>;

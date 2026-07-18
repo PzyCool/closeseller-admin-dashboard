@@ -8,6 +8,7 @@ type DataTableProps = {
 
 export function DataTable({ columns, rows, statusColumn }: DataTableProps) {
   return (
+    // Desktop matches the Figma width; smaller screens can scroll the table instead of compressing columns.
     <div className="w-full overflow-x-auto xl:overflow-visible">
       <table className="w-full min-w-[960px] border-collapse text-left xl:min-w-0">
         <thead>

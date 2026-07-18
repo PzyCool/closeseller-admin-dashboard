@@ -8,7 +8,7 @@ import { dashboardStats } from "@/lib/data";
 export default function DashboardPage() {
   return (
     <AdminShell>
-      <div className="mx-auto flex max-w-[1116px] flex-col gap-8 px-4 lg:px-0">
+      <div className="flex max-w-[1116px] flex-col gap-8">
         <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {dashboardStats.map((stat) => (
             <StatCard key={stat.label} {...stat} />

@@ -2,25 +2,24 @@
 
 import { Bell, Menu, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { routeTitles } from "@/lib/navigation";
 
-const titles: Record<string, string> = {
-  "/": "Dashboard",
-  "/users": "Users",
-  "/products": "Products",
-};
-
-export function Topbar() {
+export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
   const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-20 h-[72px] border-b border-transparent bg-white px-4 shadow-[0_2px_8px_rgba(91,58,153,0.06)] lg:ml-[262px] lg:px-8">
       <div className="flex h-full items-center justify-between">
         <div className="flex h-10 items-center gap-4">
-          <button className="grid h-10 w-10 place-items-center text-muted" aria-label="Open menu">
+          <button
+            className="grid h-10 w-10 place-items-center text-muted lg:hidden"
+            aria-label="Open menu"
+            onClick={onMenuClick}
+          >
             <Menu className="h-5 w-5" />
           </button>
           <h1 className="text-[24px] font-bold leading-7 text-foreground">
-            {titles[pathname] ?? "Dashboard"}
+            {routeTitles[pathname as keyof typeof routeTitles] ?? "Dashboard"}
           </h1>
         </div>
 

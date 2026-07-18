@@ -6,14 +6,14 @@ import { productStats } from "@/lib/data";
 export default function ProductsPage() {
   return (
     <AdminShell>
-      <div className="mx-auto max-w-[1169px] px-4 lg:px-0">
-        <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div>
+        <section className="grid max-w-[1116px] gap-6 md:grid-cols-2 xl:grid-cols-4">
           {productStats.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}
         </section>
 
-        <div className="mt-[61px]">
+        <div className="mt-[61px] max-w-[1169px]">
           <ProductsTable />
         </div>
       </div>
