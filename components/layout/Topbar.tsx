@@ -1,11 +1,14 @@
 "use client";
 
-import { Bell, Menu, Search } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Bell, Menu, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { routeTitles } from "@/lib/navigation";
+import { getRouteBackHref, getRouteTitle } from "@/lib/navigation";
 
 export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
   const pathname = usePathname();
+  const title = getRouteTitle(pathname);
+  const backHref = getRouteBackHref(pathname);
 
   return (
     <header className="sticky top-0 z-20 h-[72px] border-b border-transparent bg-white px-4 shadow-[0_2px_8px_rgba(91,58,153,0.06)] lg:ml-[262px] lg:px-8">
@@ -18,9 +21,17 @@ export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
           >
             <Menu className="h-5 w-5" />
           </button>
-          <h1 className="text-[24px] font-bold leading-7 text-foreground">
-            {routeTitles[pathname as keyof typeof routeTitles] ?? "Dashboard"}
-          </h1>
+          {backHref ? (
+            <Link
+              href={backHref}
+              className="inline-flex items-center gap-3 text-[24px] font-bold leading-7 text-foreground"
+            >
+              <ArrowLeft className="h-6 w-6" />
+              {title}
+            </Link>
+          ) : (
+            <h1 className="text-[24px] font-bold leading-7 text-foreground">{title}</h1>
+          )}
         </div>
 
         <div className="flex h-10 items-center gap-4">

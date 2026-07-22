@@ -111,3 +111,103 @@ export const products = Array.from({ length: 10 }, (_, index) => [
   "12 pcs sold",
   "05/03/2026",
 ]);
+
+export function slugify(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+export const userDetails = [
+  {
+    id: "zhiee-gadgets",
+    name: "Zhiee Gadgets",
+    role: "Vendor",
+    status: "Active",
+    verification: "Verified",
+    memberSince: "05/04/2024",
+    lastLogin: "2 hrs ago",
+    orders: "32",
+    completed: "30",
+    walletBalance: "₦120,000",
+    about:
+      "I run a small gadget business and use this platform to connect with more customers and grow my reach. My focus is on providing authentic products, fast delivery, and dependable service.",
+  },
+  {
+    id: "okafor-chibuike",
+    name: "Okafor Chibuike",
+    role: "Vendor",
+    status: "Active",
+    verification: "Verified",
+    memberSince: "05/03/2026",
+    lastLogin: "2 hrs ago",
+    orders: "540",
+    completed: "512",
+    walletBalance: "₦485,000",
+    about: "Vendor profile for marketplace operations, order tracking, and admin review.",
+  },
+  {
+    id: "olamide-adeola",
+    name: "Olamide Adeola",
+    role: "Buyer",
+    status: "Suspended",
+    verification: "Unverified",
+    memberSince: "17/09/2023",
+    lastLogin: "05 Dec",
+    orders: "305",
+    completed: "288",
+    walletBalance: "₦0",
+    about: "Buyer account currently marked for admin review.",
+  },
+  {
+    id: "emmanuel-jude",
+    name: "Emmanuel Jude",
+    role: "Buyer",
+    status: "Flagged",
+    verification: "Pending Review",
+    memberSince: "25/04/2024",
+    lastLogin: "Yesterday",
+    orders: "165",
+    completed: "151",
+    walletBalance: "â‚¦32,000",
+    about: "Buyer account flagged for manual review after recent marketplace activity.",
+  },
+  {
+    id: "benjamin-franklin",
+    name: "Benjamin Franklin",
+    role: "Vendor",
+    status: "Pending",
+    verification: "In Progress",
+    memberSince: "17/09/2023",
+    lastLogin: "05 Dec",
+    orders: "305",
+    completed: "280",
+    walletBalance: "â‚¦96,000",
+    about: "Vendor account waiting for the final admin approval step.",
+  },
+];
+
+export const productDetails = [
+  {
+    id: "jbl-speaker",
+    name: "JBL Speaker",
+    displayName: "Sky-Blue Jordan Sneakers",
+    vendor: "Maeyluxery Stores",
+    category: "Fashion",
+    condition: "New",
+    status: "Active",
+    price: "₦120,000",
+    discount: "-------",
+    stock: "50",
+    lowStockAlert: "10",
+    deliveryTimeline: "7 days",
+    shippingFee: "₦10,000",
+    dateAdded: "05/03/2026",
+    description:
+      "Clean and stylish sky-blue Air Jordan sneakers crafted for comfort and everyday wear. Designed with breathable materials, soft cushioning, and a durable sole.",
+  },
+];
+
+export const customerFeedback = Array.from({ length: 6 }, () => ({
+  name: "Abiola Jude",
+  message: "Delivery was fast and the product was original. Very smooth experience.",
+  time: "2 min ago",
+}));

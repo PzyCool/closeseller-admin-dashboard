@@ -1,7 +1,7 @@
 import { Filter } from "lucide-react";
 import { DataTable } from "@/components/tables/DataTable";
 import { Pagination } from "@/components/tables/Pagination";
-import { products } from "@/lib/data";
+import { products, slugify } from "@/lib/data";
 
 export function ProductsTable() {
   return (
@@ -19,6 +19,7 @@ export function ProductsTable() {
         columns={["Product", "Vendor", "Category", "Price", "Stock", "Status", "Sales", "Date"]}
         rows={products}
         statusColumn={5}
+        rowHrefs={products.map((product) => `/product-details/${slugify(product[0])}`)}
       />
       <Pagination />
     </section>

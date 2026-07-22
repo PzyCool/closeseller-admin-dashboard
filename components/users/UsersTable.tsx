@@ -1,7 +1,7 @@
 import { Filter, Download } from "lucide-react";
 import { DataTable } from "@/components/tables/DataTable";
 import { Pagination } from "@/components/tables/Pagination";
-import { users } from "@/lib/data";
+import { slugify, users } from "@/lib/data";
 
 export function UsersTable() {
   return (
@@ -23,6 +23,7 @@ export function UsersTable() {
         columns={["User", "Role", "Status", "Orders", "Joined", "Last Active"]}
         rows={users}
         statusColumn={2}
+        rowHrefs={users.map((user) => `/user-details/${slugify(user[0])}`)}
       />
       <Pagination />
     </section>

@@ -25,3 +25,17 @@ export const navigationItems = [
 export const routeTitles = Object.fromEntries(
   navigationItems.map((item) => [item.href, item.label]),
 ) as Record<(typeof navigationItems)[number]["href"], string>;
+
+export function getRouteTitle(pathname: string) {
+  if (pathname.startsWith("/product-details")) return "Back To Products";
+  if (pathname.startsWith("/user-details")) return "Back To Users";
+
+  return routeTitles[pathname as keyof typeof routeTitles] ?? "Dashboard";
+}
+
+export function getRouteBackHref(pathname: string) {
+  if (pathname.startsWith("/product-details")) return "/products";
+  if (pathname.startsWith("/user-details")) return "/users";
+
+  return null;
+}
